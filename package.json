@@ -1,0 +1,11 @@
+{
+  "name": "gh-blind-reviews-extension",
+  "version": "1.0.0",
+  "description": "Chrome extension to anonymize GitHub authors for unbiased code reviews",
+  "scripts": {
+    "package": "mkdir -p dist && cd src && zip -r ../dist/gh-blind-reviews-v$(node -p \"require('../src/manifest.json').version\").zip ./*",
+    "bump:patch": "node scripts/bump.js patch",
+    "bump:minor": "node scripts/bump.js minor",
+    "bump:major": "node scripts/bump.js major"
+  }
+}

@@ -1,0 +1,73 @@
+/* GitHub Blind Reviews — content styles */
+
+/* Hide all author/avatar elements that haven't been blinded yet.
+   The :not() pseudo-class stops matching the moment JS sets the data
+   attribute, so elements reveal themselves already in their blinded state.
+   Selectors must mirror AUTHOR_SELECTORS and AVATAR_SELECTORS in content.js. */
+.author:not([data-blinded-author]),
+.commit-author:not([data-blinded-author]),
+.text-bold.Link--secondary:not([data-blinded-author]),
+.TimelineItem-body .author:not([data-blinded-author]),
+.js-issue-row .opened-by a:not([data-blinded-author]),
+.js-discussion-sidebar-item .assignee a:not([data-blinded-author]),
+.ReviewerCell a:not([data-blinded-author]),
+[data-hovercard-type='user']:not([data-blinded-author]),
+[data-testid='issue-body-header-author']:not([data-blinded-author]),
+.pull-request-review-header a:not([data-blinded-author]),
+.js-comment-header a[data-hovercard-type]:not([data-blinded-author]),
+.AvatarStack-body a:not([data-blinded-author]),
+.participants-list a:not([data-blinded-author]),
+img.avatar:not([data-blinded-avatar]),
+img.avatar-user:not([data-blinded-avatar]),
+img.from-avatar:not([data-blinded-avatar]),
+img[data-component='Avatar']:not([data-blinded-avatar]),
+.TimelineItem-avatar img:not([data-blinded-avatar]),
+.AvatarStack-body img:not([data-blinded-avatar]),
+.avatar-group-item img:not([data-blinded-avatar]),
+.js-comment-header img.avatar:not([data-blinded-avatar]),
+.js-discussion-sidebar-item img.avatar:not([data-blinded-avatar]),
+.participants-list img.avatar:not([data-blinded-avatar]),
+img[src*='avatars.githubusercontent.com']:not([data-blinded-avatar]) {
+  visibility: hidden !important;
+}
+
+/* When blinding is disabled, reveal everything */
+body.blind-reviews-disabled .author:not([data-blinded-author]),
+body.blind-reviews-disabled .commit-author:not([data-blinded-author]),
+body.blind-reviews-disabled .text-bold.Link--secondary:not([data-blinded-author]),
+body.blind-reviews-disabled .TimelineItem-body .author:not([data-blinded-author]),
+body.blind-reviews-disabled .js-issue-row .opened-by a:not([data-blinded-author]),
+body.blind-reviews-disabled .js-discussion-sidebar-item .assignee a:not([data-blinded-author]),
+body.blind-reviews-disabled .ReviewerCell a:not([data-blinded-author]),
+body.blind-reviews-disabled [data-hovercard-type='user']:not([data-blinded-author]),
+body.blind-reviews-disabled [data-testid='issue-body-header-author']:not([data-blinded-author]),
+body.blind-reviews-disabled .pull-request-review-header a:not([data-blinded-author]),
+body.blind-reviews-disabled .js-comment-header a[data-hovercard-type]:not([data-blinded-author]),
+body.blind-reviews-disabled .AvatarStack-body a:not([data-blinded-author]),
+body.blind-reviews-disabled .participants-list a:not([data-blinded-author]),
+body.blind-reviews-disabled img.avatar:not([data-blinded-avatar]),
+body.blind-reviews-disabled img.avatar-user:not([data-blinded-avatar]),
+body.blind-reviews-disabled img.from-avatar:not([data-blinded-avatar]),
+body.blind-reviews-disabled img[data-component='Avatar']:not([data-blinded-avatar]),
+body.blind-reviews-disabled .TimelineItem-avatar img:not([data-blinded-avatar]),
+body.blind-reviews-disabled .AvatarStack-body img:not([data-blinded-avatar]),
+body.blind-reviews-disabled .avatar-group-item img:not([data-blinded-avatar]),
+body.blind-reviews-disabled .js-comment-header img.avatar:not([data-blinded-avatar]),
+body.blind-reviews-disabled .js-discussion-sidebar-item img.avatar:not([data-blinded-avatar]),
+body.blind-reviews-disabled .participants-list img.avatar:not([data-blinded-avatar]),
+body.blind-reviews-disabled img[src*='avatars.githubusercontent.com']:not([data-blinded-avatar]) {
+  visibility: visible !important;
+}
+
+/* Placeholder avatar: round, neutral gray */
+img.blinded-avatar {
+  border-radius: 50%;
+  background-color: #c8c8c8;
+  object-fit: cover;
+}
+
+/* Blinded author links: non-interactive, muted appearance */
+[data-blinded-author] {
+  cursor: default;
+  color: var(--fgColor-muted, #6e7781);
+}
