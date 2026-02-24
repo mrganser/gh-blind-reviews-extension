@@ -1,73 +1,87 @@
-/* GitHub Blind Reviews — content styles */
+/* GitHub Blind Reviews — pure CSS blinding
+   All rules are scoped under html:not(.blind-reviews-disabled).
+   When JS adds that class, rules stop matching and GitHub's original
+   styles take over — no restoration needed. */
 
-/* Hide all author/avatar elements that haven't been blinded yet.
-   The :not() pseudo-class stops matching the moment JS sets the data
-   attribute, so elements reveal themselves already in their blinded state.
-   Selectors must mirror AUTHOR_SELECTORS and AVATAR_SELECTORS in content.js. */
-.author:not([data-blinded-author]),
-.commit-author:not([data-blinded-author]),
-.text-bold.Link--secondary:not([data-blinded-author]),
-.TimelineItem-body .author:not([data-blinded-author]),
-.js-issue-row .opened-by a:not([data-blinded-author]),
-.js-discussion-sidebar-item .assignee a:not([data-blinded-author]),
-.ReviewerCell a:not([data-blinded-author]),
-[data-hovercard-type='user']:not([data-blinded-author]),
-[data-testid='issue-body-header-author']:not([data-blinded-author]),
-.pull-request-review-header a:not([data-blinded-author]),
-.js-comment-header a[data-hovercard-type]:not([data-blinded-author]),
-.AvatarStack-body a:not([data-blinded-author]),
-.participants-list a:not([data-blinded-author]),
-img.avatar:not([data-blinded-avatar]),
-img.avatar-user:not([data-blinded-avatar]),
-img.from-avatar:not([data-blinded-avatar]),
-img[data-component='Avatar']:not([data-blinded-avatar]),
-.TimelineItem-avatar img:not([data-blinded-avatar]),
-.AvatarStack-body img:not([data-blinded-avatar]),
-.avatar-group-item img:not([data-blinded-avatar]),
-.js-comment-header img.avatar:not([data-blinded-avatar]),
-.js-discussion-sidebar-item img.avatar:not([data-blinded-avatar]),
-.participants-list img.avatar:not([data-blinded-avatar]),
-img[src*='avatars.githubusercontent.com']:not([data-blinded-avatar]) {
-  visibility: hidden !important;
-}
+/* ─── Avatar replacement ─────────────────────────────────────────────────── */
 
-/* When blinding is disabled, reveal everything */
-body.blind-reviews-disabled .author:not([data-blinded-author]),
-body.blind-reviews-disabled .commit-author:not([data-blinded-author]),
-body.blind-reviews-disabled .text-bold.Link--secondary:not([data-blinded-author]),
-body.blind-reviews-disabled .TimelineItem-body .author:not([data-blinded-author]),
-body.blind-reviews-disabled .js-issue-row .opened-by a:not([data-blinded-author]),
-body.blind-reviews-disabled .js-discussion-sidebar-item .assignee a:not([data-blinded-author]),
-body.blind-reviews-disabled .ReviewerCell a:not([data-blinded-author]),
-body.blind-reviews-disabled [data-hovercard-type='user']:not([data-blinded-author]),
-body.blind-reviews-disabled [data-testid='issue-body-header-author']:not([data-blinded-author]),
-body.blind-reviews-disabled .pull-request-review-header a:not([data-blinded-author]),
-body.blind-reviews-disabled .js-comment-header a[data-hovercard-type]:not([data-blinded-author]),
-body.blind-reviews-disabled .AvatarStack-body a:not([data-blinded-author]),
-body.blind-reviews-disabled .participants-list a:not([data-blinded-author]),
-body.blind-reviews-disabled img.avatar:not([data-blinded-avatar]),
-body.blind-reviews-disabled img.avatar-user:not([data-blinded-avatar]),
-body.blind-reviews-disabled img.from-avatar:not([data-blinded-avatar]),
-body.blind-reviews-disabled img[data-component='Avatar']:not([data-blinded-avatar]),
-body.blind-reviews-disabled .TimelineItem-avatar img:not([data-blinded-avatar]),
-body.blind-reviews-disabled .AvatarStack-body img:not([data-blinded-avatar]),
-body.blind-reviews-disabled .avatar-group-item img:not([data-blinded-avatar]),
-body.blind-reviews-disabled .js-comment-header img.avatar:not([data-blinded-avatar]),
-body.blind-reviews-disabled .js-discussion-sidebar-item img.avatar:not([data-blinded-avatar]),
-body.blind-reviews-disabled .participants-list img.avatar:not([data-blinded-avatar]),
-body.blind-reviews-disabled img[src*='avatars.githubusercontent.com']:not([data-blinded-avatar]) {
-  visibility: visible !important;
-}
-
-/* Placeholder avatar: round, neutral gray */
-img.blinded-avatar {
+html:not(.blind-reviews-disabled) img.avatar,
+html:not(.blind-reviews-disabled) img.avatar-user,
+html:not(.blind-reviews-disabled) img.from-avatar,
+html:not(.blind-reviews-disabled) img[data-component='Avatar'],
+html:not(.blind-reviews-disabled) .TimelineItem-avatar img,
+html:not(.blind-reviews-disabled) .AvatarStack-body img,
+html:not(.blind-reviews-disabled) .avatar-group-item img,
+html:not(.blind-reviews-disabled) .js-comment-header img.avatar,
+html:not(.blind-reviews-disabled) .js-discussion-sidebar-item img.avatar,
+html:not(.blind-reviews-disabled) .participants-list img.avatar,
+html:not(.blind-reviews-disabled) img[src*='avatars.githubusercontent.com'] {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%23c8c8c8'/%3E%3Ccircle cx='16' cy='12' r='5' fill='%23888'/%3E%3Cellipse cx='16' cy='26' rx='9' ry='6' fill='%23888'/%3E%3C/svg%3E");
   border-radius: 50%;
-  background-color: #c8c8c8;
-  object-fit: cover;
+  background: #c8c8c8;
 }
 
-/* Blinded author links: non-interactive, muted appearance */
-[data-blinded-author] {
-  cursor: default;
+/* ─── Hovercard suppression on avatar-link wrappers ─────────────────────── */
+
+html:not(.blind-reviews-disabled) a[data-hovercard-type='user']:has(img) {
+  pointer-events: none;
+}
+
+/* ─── Author name hiding ─────────────────────────────────────────────────── */
+
+html:not(.blind-reviews-disabled) .author,
+html:not(.blind-reviews-disabled) .commit-author,
+html:not(.blind-reviews-disabled) .text-bold.Link--secondary,
+html:not(.blind-reviews-disabled) .TimelineItem-body .author,
+html:not(.blind-reviews-disabled) .js-issue-row .opened-by a,
+html:not(.blind-reviews-disabled) .js-discussion-sidebar-item .assignee a,
+html:not(.blind-reviews-disabled) .ReviewerCell a,
+html:not(.blind-reviews-disabled) [data-hovercard-type='user']:not(:has(img)),
+html:not(.blind-reviews-disabled) [data-hovercard-url*='/users/']:not(:has(img)),
+html:not(.blind-reviews-disabled) a[data-inline='true']:not(:has(img)),
+html:not(.blind-reviews-disabled) [data-testid='issue-body-header-author']:not(:has(img)),
+html:not(.blind-reviews-disabled) [class*='eventProfileReference'],
+html:not(.blind-reviews-disabled) .pull-request-review-header a:not(:has(img)),
+html:not(.blind-reviews-disabled) .js-comment-header a[data-hovercard-type]:not(:has(img)) {
+  font-size: 0 !important;
+  pointer-events: none !important;
+}
+
+html:not(.blind-reviews-disabled) .author::after,
+html:not(.blind-reviews-disabled) .commit-author::after,
+html:not(.blind-reviews-disabled) .text-bold.Link--secondary::after,
+html:not(.blind-reviews-disabled) .TimelineItem-body .author::after,
+html:not(.blind-reviews-disabled) .js-issue-row .opened-by a::after,
+html:not(.blind-reviews-disabled) .js-discussion-sidebar-item .assignee a::after,
+html:not(.blind-reviews-disabled) .ReviewerCell a::after,
+html:not(.blind-reviews-disabled) [data-hovercard-type='user']:not(:has(img))::after,
+html:not(.blind-reviews-disabled) [data-hovercard-url*='/users/']:not(:has(img))::after,
+html:not(.blind-reviews-disabled) a[data-inline='true']:not(:has(img))::after,
+html:not(.blind-reviews-disabled) [data-testid='issue-body-header-author']:not(:has(img))::after,
+html:not(.blind-reviews-disabled) [class*='eventProfileReference']::after,
+html:not(.blind-reviews-disabled) .pull-request-review-header a:not(:has(img))::after,
+html:not(.blind-reviews-disabled) .js-comment-header a[data-hovercard-type]:not(:has(img))::after {
+  content: "🥷";
+  font-size: 0.875rem;
+  pointer-events: none;
   color: var(--fgColor-muted, #6e7781);
+  font-style: normal;
+  text-decoration: none;
+}
+
+/* ─── Commit dropdown ────────────────────────────────────────────────────── */
+
+html:not(.blind-reviews-disabled) .select-menu-item .description {
+  font-size: 0 !important;
+}
+
+html:not(.blind-reviews-disabled) .select-menu-item .description::before {
+  content: "🥷";
+  font-size: 0.875rem;
+  pointer-events: none;
+  color: var(--fgColor-muted, #6e7781);
+}
+
+html:not(.blind-reviews-disabled) .select-menu-item .description relative-time {
+  font-size: 0.875rem;
 }

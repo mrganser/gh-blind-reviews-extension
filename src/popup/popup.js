@@ -27,6 +27,13 @@ chrome.storage.local.get({ blindReviewsEnabled: true }, (result) => {
 // Save on change
 toggle.addEventListener("change", () => {
   const enabled = toggle.checked;
-  chrome.storage.local.set({ blindReviewsEnabled: enabled });
-  updateStatus(enabled);
+  chrome.storage.local.set({ blindReviewsEnabled: enabled }, () => {
+    if (chrome.runtime.lastError) {
+      toggle.checked = !enabled;
+      updateStatus(!enabled);
+      statusEl.textContent = "Error saving settings";
+      return;
+    }
+    updateStatus(enabled);
+  });
 });
