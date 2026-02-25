@@ -1,46 +1,77 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GitHub Blind Reviews</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GitHub Blind Reviews</title>
-  <link rel="stylesheet" href="./styles.css" />
-</head>
-
-<body>
-  <div class="header">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94" stroke="#24292f"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19" stroke="#24292f" stroke-width="2"
-        stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M1 1l22 22" stroke="#24292f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M10.73 10.73a3 3 0 004.54 4.54" stroke="#24292f" stroke-width="2" stroke-linecap="round"
-        stroke-linejoin="round" />
-    </svg>
-    <div>
-      <h1>Blind Reviews</h1>
-      <p>Anonymize GitHub authors</p>
+  <body>
+    <div class="header">
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17.94 17.94A10.07 10.07 0 0112 20c-7 0-11-8-11-8a18.45 18.45 0 015.06-5.94"
+          stroke="#24292f"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M9.9 4.24A9.12 9.12 0 0112 4c7 0 11 8 11 8a18.5 18.5 0 01-2.16 3.19"
+          stroke="#24292f"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M1 1l22 22"
+          stroke="#24292f"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M10.73 10.73a3 3 0 004.54 4.54"
+          stroke="#24292f"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+      <div>
+        <h1>Blind Reviews</h1>
+        <p>Anonymize GitHub identities</p>
+      </div>
     </div>
-  </div>
 
-  <hr class="divider" />
+    <hr class="divider" />
 
-  <div class="toggle-row">
-    <div>
-      <div class="toggle-label">Enable anonymization</div>
-      <div class="toggle-description">Hides authors names &amp; avatars</div>
-    </div>
-    <label class="switch">
-      <input type="checkbox" id="toggle" />
-      <span class="slider"></span>
+    <label class="toggle-row" for="toggle">
+      <div>
+        <span class="toggle-label">Enable anonymization</span>
+        <span class="toggle-description" id="toggle-description"
+          >Hides user names &amp; avatars</span
+        >
+      </div>
+      <span class="switch">
+        <input
+          type="checkbox"
+          id="toggle"
+          aria-describedby="toggle-description"
+        />
+        <span class="slider"></span>
+      </span>
     </label>
-  </div>
 
-  <div class="status" id="status">Loading...</div>
+    <div class="status" id="status">Loading...</div>
 
-  <script type="module" src="./main.ts"></script>
-</body>
-
+    <script type="module" src="./main.ts"></script>
+  </body>
 </html>

@@ -2,6 +2,7 @@
 
 This project uses [WXT](https://wxt.dev/) to build a multi-browser WebExtension
 for Chrome, Firefox (MV3), and Edge.
+It anonymizes GitHub identities (authors, commenters, and responders) to reduce bias during reviews.
 
 ## Setup
 
@@ -34,3 +35,12 @@ npm run zip:edge
 ```
 
 Packages are generated in `.output/`.
+
+## Quality Checks
+
+```bash
+npm run typecheck
+npm run lint
+npm run format:check
+npm run test
+```

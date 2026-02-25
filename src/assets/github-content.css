@@ -37,12 +37,16 @@ html:not(.blind-reviews-disabled) .js-issue-row .opened-by a,
 html:not(.blind-reviews-disabled) .js-discussion-sidebar-item .assignee a,
 html:not(.blind-reviews-disabled) .ReviewerCell a,
 html:not(.blind-reviews-disabled) [data-hovercard-type='user']:not(:has(img)),
-html:not(.blind-reviews-disabled) [data-hovercard-url*='/users/']:not(:has(img)),
+html:not(.blind-reviews-disabled)
+  [data-hovercard-url*='/users/']:not(:has(img)),
 html:not(.blind-reviews-disabled) a[data-inline='true']:not(:has(img)),
-html:not(.blind-reviews-disabled) [data-testid='issue-body-header-author']:not(:has(img)),
+html:not(.blind-reviews-disabled)
+  [data-testid='issue-body-header-author']:not(:has(img)),
 html:not(.blind-reviews-disabled) [class*='eventProfileReference'],
 html:not(.blind-reviews-disabled) .pull-request-review-header a:not(:has(img)),
-html:not(.blind-reviews-disabled) .js-comment-header a[data-hovercard-type]:not(:has(img)) {
+html:not(.blind-reviews-disabled)
+  .js-comment-header
+  a[data-hovercard-type]:not(:has(img)) {
   font-size: 0 !important;
   pointer-events: none !important;
 }
@@ -52,16 +56,26 @@ html:not(.blind-reviews-disabled) .commit-author::after,
 html:not(.blind-reviews-disabled) .text-bold.Link--secondary::after,
 html:not(.blind-reviews-disabled) .TimelineItem-body .author::after,
 html:not(.blind-reviews-disabled) .js-issue-row .opened-by a::after,
-html:not(.blind-reviews-disabled) .js-discussion-sidebar-item .assignee a::after,
+html:not(.blind-reviews-disabled)
+  .js-discussion-sidebar-item
+  .assignee
+  a::after,
 html:not(.blind-reviews-disabled) .ReviewerCell a::after,
-html:not(.blind-reviews-disabled) [data-hovercard-type='user']:not(:has(img))::after,
-html:not(.blind-reviews-disabled) [data-hovercard-url*='/users/']:not(:has(img))::after,
+html:not(.blind-reviews-disabled)
+  [data-hovercard-type='user']:not(:has(img))::after,
+html:not(.blind-reviews-disabled)
+  [data-hovercard-url*='/users/']:not(:has(img))::after,
 html:not(.blind-reviews-disabled) a[data-inline='true']:not(:has(img))::after,
-html:not(.blind-reviews-disabled) [data-testid='issue-body-header-author']:not(:has(img))::after,
+html:not(.blind-reviews-disabled)
+  [data-testid='issue-body-header-author']:not(:has(img))::after,
 html:not(.blind-reviews-disabled) [class*='eventProfileReference']::after,
-html:not(.blind-reviews-disabled) .pull-request-review-header a:not(:has(img))::after,
-html:not(.blind-reviews-disabled) .js-comment-header a[data-hovercard-type]:not(:has(img))::after {
-  content: "🥷";
+html:not(.blind-reviews-disabled)
+  .pull-request-review-header
+  a:not(:has(img))::after,
+html:not(.blind-reviews-disabled)
+  .js-comment-header
+  a[data-hovercard-type]:not(:has(img))::after {
+  content: '🥷';
   font-size: 0.875rem;
   pointer-events: none;
   color: var(--fgColor-muted, #6e7781);
@@ -76,7 +90,7 @@ html:not(.blind-reviews-disabled) .select-menu-item .description {
 }
 
 html:not(.blind-reviews-disabled) .select-menu-item .description::before {
-  content: "🥷";
+  content: '🥷';
   font-size: 0.875rem;
   pointer-events: none;
   color: var(--fgColor-muted, #6e7781);

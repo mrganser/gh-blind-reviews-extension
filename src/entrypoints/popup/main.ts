@@ -1,46 +1,45 @@
-import { browser } from "wxt/browser";
+import { browser } from 'wxt/browser';
+import { getStatusMessage } from '../../lib/status';
 
-const STORAGE_KEY = "blindReviewsEnabled";
-const toggleEl = document.getElementById("toggle") as HTMLInputElement | null;
-const statusEl = document.getElementById("status");
+const STORAGE_KEY = 'blindReviewsEnabled';
+const toggleEl = document.getElementById('toggle') as HTMLInputElement | null;
+const statusEl = document.getElementById('status');
 
 if (!toggleEl || !statusEl) {
-  throw new Error("Popup controls were not found.");
+  throw new Error('Popup controls were not found.');
 }
 
-function updateStatus(enabled: boolean) {
-  if (enabled) {
-    statusEl.textContent = "Active - authors are anonymized";
-    statusEl.className = "status active";
-    return;
-  }
+const toggle = toggleEl;
+const status = statusEl;
 
-  statusEl.textContent = "Inactive - authors are visible";
-  statusEl.className = "status";
+function updateStatus(enabled: boolean) {
+  status.textContent = getStatusMessage(enabled);
+  status.className = 'status';
+  if (enabled) status.classList.add('active');
 }
 
 async function loadState() {
   try {
     const result = await browser.storage.local.get({ [STORAGE_KEY]: true });
     const enabled = Boolean(result[STORAGE_KEY]);
-    toggleEl.checked = enabled;
+    toggle.checked = enabled;
     updateStatus(enabled);
   } catch {
-    statusEl.textContent = "Error loading settings";
-    statusEl.className = "status";
+    status.textContent = 'Error loading settings';
+    status.className = 'status';
   }
 }
 
-toggleEl.addEventListener("change", async () => {
-  const enabled = toggleEl.checked;
+toggle.addEventListener('change', async () => {
+  const enabled = toggle.checked;
 
   try {
     await browser.storage.local.set({ [STORAGE_KEY]: enabled });
     updateStatus(enabled);
   } catch {
-    toggleEl.checked = !enabled;
+    toggle.checked = !enabled;
     updateStatus(!enabled);
-    statusEl.textContent = "Error saving settings";
+    status.textContent = 'Error saving settings';
   }
 });
 
