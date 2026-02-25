@@ -27,14 +27,44 @@ html:not(.blind-reviews-disabled) a[data-hovercard-type='user']:has(img) {
   pointer-events: none;
 }
 
+html:not(.blind-reviews-disabled) [data-hovercard-type='user']:has(img) {
+  pointer-events: none;
+}
+
+html:not(.blind-reviews-disabled) tool-tip[for^='review-status-'] {
+  display: none !important;
+}
+
+html:not(.blind-reviews-disabled)
+  tool-tip[for^='reactions--reaction_button_component-'] {
+  display: none !important;
+}
+
+html:not(.blind-reviews-disabled)
+  .AvatarStack-body.tooltipped[aria-label^='Assigned to']::before,
+html:not(.blind-reviews-disabled)
+  .AvatarStack-body.tooltipped[aria-label^='Assigned to']::after {
+  display: none !important;
+  content: none !important;
+}
+
+html:not(.blind-reviews-disabled)
+  .AvatarStack-body[aria-label^='Assigned to']
+  a.avatar.avatar-user {
+  pointer-events: none !important;
+}
+
 /* ─── Author name hiding ─────────────────────────────────────────────────── */
 
-html:not(.blind-reviews-disabled) .author,
+html:not(.blind-reviews-disabled)
+  .author:not(:has(a[data-hovercard-type='organization'])),
 html:not(.blind-reviews-disabled) .commit-author,
 html:not(.blind-reviews-disabled) .text-bold.Link--secondary,
 html:not(.blind-reviews-disabled) .TimelineItem-body .author,
 html:not(.blind-reviews-disabled) .js-issue-row .opened-by a,
 html:not(.blind-reviews-disabled) .js-discussion-sidebar-item .assignee a,
+html:not(.blind-reviews-disabled) .assignee.Link--primary,
+html:not(.blind-reviews-disabled) .assignee.Link--primary span,
 html:not(.blind-reviews-disabled) .ReviewerCell a,
 html:not(.blind-reviews-disabled) a[href*='commits?author='],
 html:not(.blind-reviews-disabled)
@@ -54,7 +84,8 @@ html:not(.blind-reviews-disabled)
   pointer-events: none !important;
 }
 
-html:not(.blind-reviews-disabled) .author::after,
+html:not(.blind-reviews-disabled)
+  .author:not(:has(a[data-hovercard-type='organization']))::after,
 html:not(.blind-reviews-disabled) .commit-author::after,
 html:not(.blind-reviews-disabled) .text-bold.Link--secondary::after,
 html:not(.blind-reviews-disabled) .TimelineItem-body .author::after,
@@ -63,6 +94,7 @@ html:not(.blind-reviews-disabled)
   .js-discussion-sidebar-item
   .assignee
   a::after,
+html:not(.blind-reviews-disabled) .assignee.Link--primary::after,
 html:not(.blind-reviews-disabled) .ReviewerCell a::after,
 html:not(.blind-reviews-disabled) a[href*='commits?author=']::after,
 html:not(.blind-reviews-disabled)

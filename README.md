@@ -1,9 +1,18 @@
 # GitHub Blind Reviews Extension
 
+![Logo](design/icons/off.svg)
+
+It anonymizes GitHub identities (authors, commenters, and reviewers) to reduce bias during reviews.
+The toolbar icon changes by state: ON uses a blindfolded, OFF does not.
+
+![Popup](screenshots/popup.png)
+
+![Exmaple](screenshots/example.png)
+
+## Tech
+
 This project uses [WXT](https://wxt.dev/) to build a multi-browser WebExtension
 for Chrome, Firefox (MV3), and Edge.
-It anonymizes GitHub identities (authors, commenters, and responders) to reduce bias during reviews.
-The toolbar icon changes by state: ON uses a blindfolded code bubble, OFF uses a profile+diff icon with a red close badge.
 
 ## Setup
 
