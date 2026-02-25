@@ -2,10 +2,27 @@
   "name": "gh-blind-reviews-extension",
   "version": "1.0.0",
   "description": "Chrome extension to anonymize GitHub authors for unbiased code reviews",
+  "type": "module",
   "scripts": {
-    "package": "mkdir -p dist && cd src && zip -r ../dist/gh-blind-reviews-v$(node -p \"require('../src/manifest.json').version\").zip ./*",
-    "bump:patch": "node scripts/bump.js patch",
-    "bump:minor": "node scripts/bump.js minor",
-    "bump:major": "node scripts/bump.js major"
+    "dev": "wxt",
+    "dev:chrome": "wxt -b chrome",
+    "dev:firefox": "wxt -b firefox --mv3",
+    "dev:edge": "wxt -b edge",
+    "build": "wxt build",
+    "build:chrome": "wxt build -b chrome",
+    "build:firefox": "wxt build -b firefox --mv3",
+    "build:edge": "wxt build -b edge",
+    "zip": "wxt zip",
+    "zip:chrome": "wxt zip -b chrome",
+    "zip:firefox": "wxt zip -b firefox --mv3",
+    "zip:edge": "wxt zip -b edge",
+    "bump:patch": "npm version patch --no-git-tag-version",
+    "bump:minor": "npm version minor --no-git-tag-version",
+    "bump:major": "npm version major --no-git-tag-version",
+    "postinstall": "wxt prepare"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "wxt": "^0.20.18"
   }
 }
