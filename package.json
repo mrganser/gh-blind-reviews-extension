@@ -16,6 +16,7 @@
     "zip:chrome": "wxt zip -b chrome",
     "zip:firefox": "wxt zip -b firefox --mv3",
     "zip:edge": "wxt zip -b edge",
+    "icons:generate": "./scripts/generate-icons.sh",
     "check": "npm run typecheck && npm run lint && npm run format:check && npm run test",
     "typecheck": "wxt prepare && tsc --noEmit -p .wxt/tsconfig.json",
     "lint": "eslint .",
