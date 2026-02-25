@@ -36,6 +36,9 @@ html:not(.blind-reviews-disabled) .TimelineItem-body .author,
 html:not(.blind-reviews-disabled) .js-issue-row .opened-by a,
 html:not(.blind-reviews-disabled) .js-discussion-sidebar-item .assignee a,
 html:not(.blind-reviews-disabled) .ReviewerCell a,
+html:not(.blind-reviews-disabled) a[href*='commits?author='],
+html:not(.blind-reviews-disabled)
+  a[class*='AuthorAvatar-module__authorHoverableLink'],
 html:not(.blind-reviews-disabled) [data-hovercard-type='user']:not(:has(img)),
 html:not(.blind-reviews-disabled)
   [data-hovercard-url*='/users/']:not(:has(img)),
@@ -61,6 +64,9 @@ html:not(.blind-reviews-disabled)
   .assignee
   a::after,
 html:not(.blind-reviews-disabled) .ReviewerCell a::after,
+html:not(.blind-reviews-disabled) a[href*='commits?author=']::after,
+html:not(.blind-reviews-disabled)
+  a[class*='AuthorAvatar-module__authorHoverableLink']::after,
 html:not(.blind-reviews-disabled)
   [data-hovercard-type='user']:not(:has(img))::after,
 html:not(.blind-reviews-disabled)
