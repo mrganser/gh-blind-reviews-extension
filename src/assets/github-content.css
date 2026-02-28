@@ -79,7 +79,9 @@ html:not(.blind-reviews-disabled) [class*='eventProfileReference'],
 html:not(.blind-reviews-disabled) .pull-request-review-header a:not(:has(img)),
 html:not(.blind-reviews-disabled)
   .js-comment-header
-  a[data-hovercard-type]:not(:has(img)) {
+  a[data-hovercard-type]:not(:has(img)),
+html:not(.blind-reviews-disabled)
+  a[class*='MarkdownLastEditedBy-module__mutedEditorLink'] {
   font-size: 0 !important;
   pointer-events: none !important;
 }
@@ -112,7 +114,9 @@ html:not(.blind-reviews-disabled)
   a:not(:has(img))::after,
 html:not(.blind-reviews-disabled)
   .js-comment-header
-  a[data-hovercard-type]:not(:has(img))::after {
+  a[data-hovercard-type]:not(:has(img))::after,
+html:not(.blind-reviews-disabled)
+  a[class*='MarkdownLastEditedBy-module__mutedEditorLink']::after {
   content: '🥷';
   font-size: 0.875rem;
   pointer-events: none;
