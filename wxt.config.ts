@@ -13,6 +13,12 @@ export default defineConfig({
       '48': '/icons/icon48.png',
       '128': '/icons/icon128.png',
     },
+    browser_specific_settings: {
+      gecko: {
+        id: 'gh-blind-reviews@mrganser',
+        strict_min_version: '109.0',
+      },
+    },
     action: {
       default_icon: {
         '16': '/icons/icon16.png',
