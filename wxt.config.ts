@@ -18,7 +18,8 @@ export default defineConfig({
         id: 'gh-blind-reviews@mrganser',
         strict_min_version: '109.0',
         data_collection_permissions: {
-          usageData: false,
+          required: ['none'],
+          optional: [],
         },
       } as object,
     },
