@@ -19,6 +19,9 @@ export default defineConfig({
         strict_min_version: '109.0',
       },
     },
+    data_collection_permissions: {
+      usageData: false,
+    },
     action: {
       default_icon: {
         '16': '/icons/icon16.png',
