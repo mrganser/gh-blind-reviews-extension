@@ -17,10 +17,10 @@ export default defineConfig({
       gecko: {
         id: 'gh-blind-reviews@mrganser',
         strict_min_version: '109.0',
-      },
-    },
-    data_collection_permissions: {
-      usageData: false,
+        data_collection_permissions: {
+          usageData: false,
+        },
+      } as object,
     },
     action: {
       default_icon: {
