@@ -9,6 +9,11 @@ The toolbar icon changes by state: ON uses a blindfolded, OFF does not.
 
 ![Exmaple](screenshots/example.png)
 
+## Install
+
+- [Chrome Web Store](https://chromewebstore.google.com/detail/inoocdpeofplhbjpdkcacaenaionganf)
+- [Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/github-blind-reviews/)
+
 ## Tech
 
 This project uses [WXT](https://wxt.dev/) to build a multi-browser WebExtension
