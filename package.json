@@ -1,6 +1,6 @@
 {
   "name": "gh-blind-reviews-extension",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Browser extension to anonymize GitHub identities for unbiased code reviews",
   "type": "module",
   "scripts": {
